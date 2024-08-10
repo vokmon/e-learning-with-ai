@@ -15,7 +15,7 @@ import { getFileUrl, saveFileToStorage } from "./utils/firebase.ts/storage.ts";
 
 const summaryChain = await getChain(generateAssignmentTemplate, new JsonOutputParser());
 
-const timeLabel = "Article upload";
+const timeLabel = "Articles upload";
 const collectionName = process.env.FIREBASE_ARTICLE_ASSESSMENT_COLLECTION!;
 
 rl.question("Enter path path to load the documents: ", async (path: string) => {
@@ -60,7 +60,7 @@ rl.question("Enter path path to load the documents: ", async (path: string) => {
   }
 
   loader.indent = loader.indent - 2;
-  loader = loader.info(`Finish uploading the article.`);
+  loader = loader.info(`Finish processing ${docs.length} articles.`);
   console.log("\n");
   console.timeEnd(timeLabel);
   process.exit(0);
