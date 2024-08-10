@@ -8,7 +8,9 @@ import { rl } from "./utils/user-input.ts";
 import { createBlobFromFile } from "./utils/file-utils.ts";
 import { DocumentData } from "../../model/document-data.ts";
 import { Assessment, AssessmentFromLlm } from "../../model/assessment.js";
-import { checkFileExists, saveDataToFireStore } from "./utils/firestore.ts";
+import { checkFileExists, saveDataToFireStore } from "./utils/firebase.ts/firestore.ts";
+import { UploadResult } from "firebase/storage";
+import { getFileUrl, saveFileToStorage } from "./utils/firebase.ts/storage.ts";
 
 
 const summaryChain = await getChain(generateAssignmentTemplate, new JsonOutputParser());
@@ -33,9 +35,9 @@ rl.question("Enter path path to load the documents: ", async (path: string) => {
 
     loader = loader.start(`Generating assessment and uploading file to the server. File: ${doc.fileName}`);
 
-    const resolve = await Promise.all([generateAssessment(doc), uploadFile(doc)]);
+    const resolve = await Promise.all([generateAssessment(doc), await saveFileToStorage(doc.fullPath, doc.fileName, 'articles')]);
     const assessment: AssessmentFromLlm = resolve[0];
-    const fileUpload: PutBlobResult = resolve[1];
+    const fileUpload: UploadResult = resolve[1];
 
     loader = loader.succeed(`Generated assessment and uploading file to the server. File: ${doc.fileName}`);
     loader.indent = loader.indent + 2;
@@ -45,7 +47,7 @@ rl.question("Enter path path to load the documents: ", async (path: string) => {
     const result: Assessment = {
       id: crypto.randomUUID(),
       fileName: doc.fileName,
-      url: fileUpload.url,
+      path: fileUpload.ref.fullPath,
       createdAt: new Date(),
       ...assessment,
     }
@@ -69,9 +71,13 @@ async function generateAssessment(doc: DocumentData): Promise<AssessmentFromLlm>
   return assesment as AssessmentFromLlm;
 }
 
-async function uploadFile(doc: DocumentData): Promise<PutBlobResult> {
-  const file = await createBlobFromFile(doc.fullPath);
-  const result = await put(doc.fileName, file, { access: 'public' });
-  return result;
-}
+/**
+ * For uploading file to vercel
+ * The vercel blob is still in beta so I decided to move to firebase
+ */
+// async function uploadFile(doc: DocumentData): Promise<PutBlobResult> {
+//   const file = await createBlobFromFile(doc.fullPath);
+//   const result = await put(doc.fileName, file, { access: 'public' });
+//   return result;
+// }
 

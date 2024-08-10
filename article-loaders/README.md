@@ -36,14 +36,14 @@ This Node.js application leverages Langchain and Google AI to process articles f
 1. **Load Articles:** The application iterates over the specified article path, reading each article as a pdf file.
 2. **Generate Assessment:** For each article, Langchain is used to create an LLM chain. The chain processes the article content using the Google AI model to generate an assessment.
 3. **Store Assessment:** The generated assessment is stored in the Firestore collection specified by the `FIRESTORE_COLLECTION` environment variable.
-4. **Upload Article:** The original article is uploaded to Vercel Blob using the provided API token and project ID.
+4. **Upload Article:** The original article is uploaded to Firebase storage using the provided API token and project ID.
 
 ### Dependencies
 * Node.js
 * Langchain
 * Google Cloud Client Library
-* Vercel API
-* Firestore
+* Firebase Firestore
+* Firebase storage
 * Google AI
 
 ### Sample data

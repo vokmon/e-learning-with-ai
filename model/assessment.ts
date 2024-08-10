@@ -10,7 +10,7 @@ export type AssessmentFromLlm = {
 export type Assessment = {
   id: string;
   fileName: string;
-  url: string,
+  path: string,
   createdAt: Date;
 } & AssessmentFromLlm;
 
