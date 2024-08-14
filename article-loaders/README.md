@@ -1,12 +1,11 @@
 ## Article Loader
 
 ### Overview
-This Node.js application leverages Langchain and Google AI to process articles from a specified path. It generates assessments based on the article content, stores the assessments on Firestore, and uploads the original articles to Vercel Blob for storage.
+This Node.js application leverages Langchain and Google AI to process articles from a specified path. It generates assessments based on the article content, stores the assessments on Firestore, and uploads the original articles to Firebase for storage.
 
 ### Prerequisites
 * Node.js and npm installed
-* Google Cloud Platform project with Firebase and Firestore enabled https://console.firebase.google.com/
-* Vercel account with a project for blob storage
+* Google Cloud Platform project with Firebase, Firestore and Storage enabled https://console.firebase.google.com/
 * Environment variables configured with the following keys can be found in .env.example
 
 ### Installation
