@@ -1,6 +1,5 @@
 import { getAssessmentById } from "@/actions/assessment-actions";
 import AssessmentAndResult from "@/app/_components/AssessmentAndResult";
-import AssessmentForm from "@/app/_components/AssessmentForm";
 import React from "react";
 
 export default async function Page({ params: { id } }: { params: { id: string } }) {

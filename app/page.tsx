@@ -3,11 +3,7 @@ import AssessmentList from "./_components/AssessmentList";
 import { Suspense } from "react";
 import Header from "@/components/ui/nav/header";
 
-export default function Home({
-  assessmentlist,
-}: Readonly<{
-  assessmentlist: React.ReactNode;
-}>) {
+export default function Home({}: Readonly<{}>) {
   return (
     <main className="flex min-h-screen flex-col items-center justify-start p-5 gap-2">
       <Header />
