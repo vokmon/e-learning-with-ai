@@ -26,11 +26,11 @@ export const useHandleAssessmentForm = ({
 
   const onSubmit = async (data: SubmissionAnswer) => {
     const result = await onQuestionSubmit(data);
-    // form.reset(getDefaultValues(assessmentQuestion));
+    form.reset(getDefaultValues(assessmentQuestion));
 
-    // // Need to reset the ui rendering of the radio buttons.
-    // // The data is reset but the ui does not, so use the key technic to forch the component to rerender
-    // setFormKey((p) => p + 1);
+    // Need to reset the ui rendering of the radio buttons.
+    // The data is reset but the ui does not, so use the key technic to forch the component to rerender
+    setFormKey((p) => p + 1);
 
     return result;
   };

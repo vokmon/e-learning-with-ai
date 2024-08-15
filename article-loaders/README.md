@@ -46,4 +46,13 @@ This Node.js application leverages Langchain and Google AI to process articles f
 * Google AI
 
 ### Sample data
-The sample artibles are available in the resources folder
+The sample files are available in the resources folder
+
+### To upload the articles from the sample folders
+
+   ```bash
+   npm start
+   ```
+Then enter the path that stores the files
+
+<img src="../doc_resources/1_upload_articles.png" alt="upload articles" width="500"/>
