@@ -40,6 +40,7 @@ const AssessmentSubmissionResult = forwardRef<HTMLDivElement, AssessmentSubmissi
                     <div>
                       <h3 className="text-lg font-semibold mb-2">
                         Multiple Choice Questions
+                        <span className="ml-2 text-indigo-900">{result.multipleChoiceAnswers.filter((answer) => answer.isAnswerCorrect).length }/{result.multipleChoiceAnswers.length}</span>
                       </h3>
                       {result.multipleChoiceAnswers.map(
                         (answer, answerIndex) => (
@@ -91,7 +92,7 @@ const AssessmentSubmissionResult = forwardRef<HTMLDivElement, AssessmentSubmissi
                       </div>
                       <div className="mt-2">
                         <p className="font-medium">
-                          Rating: {result.writtenAnswer.rating}/10
+                          Score: <span className="text-lg text-indigo-900">{result.writtenAnswer.rating}/10</span>
                         </p>
                         <p className="text-md mt-1 text-foreground">
                           {result.writtenAnswer.feedback}
