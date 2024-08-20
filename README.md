@@ -1,4 +1,34 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# AI-Powered E-Learning Platform
+
+This project provides a self-learning platform that leverages artificial intelligence (AI) to create assessments, deliver personalized feedback, and empower users to gain knowledge at their own pace.
+
+## Key Features
+
+### Automatic Assessment Generation: 
+Upon uploading an article, the system intelligently generates multiple-choice and written response questions to assess user comprehension of the content.
+
+### Self-Directed Learning
+ Users can visit the platform to explore a library of articles and delve into topics that suite their interest.
+
+### Interactive Assessments: 
+Users can readily access assessments associated with each article to test their understanding.
+
+### Multiple Question Types:
+Assessments incorporate both multiple-choice questions for quick knowledge checks and written response questions to encourage deeper understanding.
+
+### AI-Powered Feedback: 
+The system utilizes AI algorithms to automatically score multiple-choice questions and provide insightful feedback on written responses, helping users solidify their learning.
+
+
+## Technologies Used
+
+- Typescript: Used for core application development and AI model integration.
+- NextJs: Provides a structure for building the web interface.
+- ShadCn: The main UI library of the app.
+- Langchain: Enables the creation and training of AI models for automated assessment generation and feedback.
+- Google Gemini: Content and assessment creation
+- Firestore: Stores assessments.
+- Firebase storage: Store the artibles in pdf format
 
 ## Getting Started
 
@@ -16,21 +46,23 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Article selection
+<img src="./doc_resources/1_web_app_landing.png" alt="upload articles" width="500"/>
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Read the article
+<img src="./doc_resources/2_read_article.png" alt="upload articles" width="500"/>
 
-## Learn More
+Start assessment after reading
+<img src="./doc_resources/3_start_assessment.png" alt="upload articles" width="100"/>
 
-To learn more about Next.js, take a look at the following resources:
+Assement - Multiple-choices questions
+<img src="./doc_resources/4_answer_multiple_choice_questions.png" alt="upload articles" width="500"/>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Assement - Written questions
+<img src="./doc_resources/5_answer_written_question.png" alt="upload articles" width="500"/>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Assement - result
+<img src="./doc_resources/6_result.png" alt="upload articles" width="500"/>
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Assement - feedback
+<img src="./doc_resources/7_result_and_feedback.png" alt="upload articles" width="500"/>
