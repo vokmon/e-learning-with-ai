@@ -12,7 +12,7 @@ The multiple-choice questions should be created based on the article only.
 There should be only one correct answer for each multiple-choice question.
 The questions should be made through out the article for comprehensive assesment.
 
-Also 1 question for written question where the user has to write a few sentences to answer.
+Also 1 question for writing question where the user has to write a few sentences to answer.
 
 The questions and summary is based on the given article only.
 In the output do not use double-quote, use single-quote if you want to emphasize anything.
@@ -31,5 +31,5 @@ The format of the output is json that follow the format below
     - questionIndex - the question index
     - answerIndex - the answer index of the question
     - reference - the reference of the question; the short explaination about the answer along with the page and line that this question refers to
- - writtenQuestion - the written question that will ask the user to answer in a few sentence
+ - writingQuestion - the writing question that will ask the user to answer in a few sentence
 `;

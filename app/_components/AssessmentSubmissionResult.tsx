@@ -85,17 +85,17 @@ const AssessmentSubmissionResult = forwardRef<HTMLDivElement, AssessmentSubmissi
                       <h3 className="text-lg font-semibold mb-2">
                         Writing Question
                       </h3>
-                      <p className="mb-2">{result.writtenQuestion}</p>
+                      <p className="mb-2">{result.writingQuestion}</p>
                       <div className="bg-muted p-3 rounded-md">
                         <p className="font-medium">Your Answer:</p>
-                        <p className="mt-1">{result.writtenAnswer.userAnswer}</p>
+                        <p className="mt-1">{result.writingAnswer.userAnswer}</p>
                       </div>
                       <div className="mt-2">
                         <p className="font-medium">
-                          Score: <span className="text-lg text-indigo-900">{result.writtenAnswer.rating}/10</span>
+                          Score: <span className="text-lg text-indigo-900">{result.writingAnswer.rating}/10</span>
                         </p>
                         <p className="text-md mt-1 text-foreground">
-                          {result.writtenAnswer.feedback}
+                          {result.writingAnswer.feedback}
                         </p>
                       </div>
                     </div>

@@ -6,9 +6,9 @@ import {
   AssessmentResult,
   MultipleChoiceAnswer,
   SubmissionAnswer,
-  WrittenAnswer,
+  WritingAnswer,
 } from "@/model/dto";
-import { markWrittenAnswerPrompt, overallFeedbackPrompt } from "@/prompts/assignment-prompts";
+import { markWritingQuestionPrompt, overallFeedbackPrompt } from "@/prompts/assignment-prompts";
 import { getDataById } from "@/utils/firebase.ts/firestore";
 import { getFileBlob, getFileUrl } from "@/utils/firebase.ts/storage";
 import { getPdfDocument } from "@/utils/pdf-loaders";
@@ -22,16 +22,16 @@ export async function markAssignment(
 ): Promise<AssessmentResult> {
   const assessment = await getDataById(collection, articleId);
   const multipleChoiceAnswers = markMultipleChoices(assessment, answers);
-  const writtenAnswer = await markWrittenQuestion(assessment, answers);
+  const writingAnswer = await markWritingQuestion(assessment, answers);
 
-  const overallFeedback = await generateOverallFeedback(multipleChoiceAnswers, writtenAnswer);
+  const overallFeedback = await generateOverallFeedback(multipleChoiceAnswers, writingAnswer);
 
   const result: AssessmentResult = {
     articleId,
     articleTitle: assessment.title,
     multipleChoiceAnswers,
-    writtenQuestion: assessment.writtenQuestion,
-    writtenAnswer: { ...writtenAnswer, userAnswer: answers["writtenAnswer"] },
+    writingQuestion: assessment.writingQuestion,
+    writingAnswer: { ...writingAnswer, userAnswer: answers["writingAnswer"] },
     overallFeedback,
   };
 
@@ -82,7 +82,7 @@ function markMultipleChoices(
   return multipleChoiceAnswers;
 }
 
-async function markWrittenQuestion(
+async function markWritingQuestion(
   assessment: Assessment,
   answers: SubmissionAnswer
 ) {
@@ -90,25 +90,25 @@ async function markWrittenQuestion(
   const content = await getPdfDocument(blob);
 
   const markAnswerChain = await getChain(
-    markWrittenAnswerPrompt,
+    markWritingQuestionPrompt,
     new JsonOutputParser()
   );
   const result = await markAnswerChain.invoke({
     article: content,
-    question: assessment.writtenQuestion,
-    answer: answers["writtenAnswer"],
+    question: assessment.writingQuestion,
+    answer: answers["writingAnswer"],
   });
-  return result as WrittenAnswer;
+  return result as WritingAnswer;
 }
 
 async function generateOverallFeedback(
   multipleChoiceAnswers: MultipleChoiceAnswer[],
-  writtenAnswer: WrittenAnswer
+  writingAnswer: WritingAnswer
 ) {
   const numberOfQuestions = String(multipleChoiceAnswers.length);
   const numberOfCorrect = String(multipleChoiceAnswers.filter((answer) => answer.isAnswerCorrect).length);
-  const feedback = writtenAnswer.feedback
-  const rating = String(writtenAnswer.rating);
+  const feedback = writingAnswer.feedback
+  const rating = String(writingAnswer.rating);
 
   const overallFeedbackChain = await getChain(
     overallFeedbackPrompt

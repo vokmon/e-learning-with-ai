@@ -75,9 +75,9 @@ const createQuizSchema = (assessmentQuestion: AssessmentQuestion) => {
     });
   });
 
-  schemaFields.writtenAnswer = z
+  schemaFields.writingAnswer = z
     .string({
-      required_error: "Please provide an answer for the written question.",
+      required_error: "Please provide an answer for the writing question.",
     })
     .min(1, "Your answer cannot be empty.");
 
@@ -93,6 +93,6 @@ function getDefaultValues(assessmentQuestion: AssessmentQuestion) {
       acc[buildQuestionIndex(index)] = undefined;
       return acc;
     },
-    { writtenAnswer: "" }
+    { writingAnswer: "" }
   );
 }

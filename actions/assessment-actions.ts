@@ -30,7 +30,7 @@ export async function getAssessmentById(id: string): Promise<AssessmentQuestion>
     title: assessment.title,
     questions: assessment.questions,
     instruction: assessment.instruction,
-    writtenQuestion: assessment.writtenQuestion,
+    writingQuestion: assessment.writingQuestion,
   }
   return result;
 }

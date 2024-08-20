@@ -81,10 +81,10 @@ export default function AssessmentForm({
           <FormField
             control={form.control}
             // @ts-ignore
-            name="writtenAnswer"
+            name="writingAnswer"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>{assessmentQuestion.writtenQuestion} 📝</FormLabel>
+                <FormLabel>{assessmentQuestion.writingQuestion} 📝</FormLabel>
                 <FormControl>
                   <Textarea
                     rows={10}

@@ -4,7 +4,7 @@ export type AssessmentFromLlm = {
   title: string;
   questions: Question[];
   answers: Answer[];
-  writtenQuestion: string;
+  writingQuestion: string;
 }
 
 export type Assessment = {

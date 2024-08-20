@@ -7,15 +7,15 @@ export type AssessmentData = Pick<
 
 export type AssessmentQuestion = Pick<
   Assessment,
-  "id" | "title" | "questions" | "instruction" | "writtenQuestion"
+  "id" | "title" | "questions" | "instruction" | "writingQuestion"
 >;
 
 export type AssessmentResult = {
   articleId: string;
   articleTitle: string;
   multipleChoiceAnswers: MultipleChoiceAnswer[];
-  writtenQuestion: string;
-  writtenAnswer: WrittenAnswer;
+  writingQuestion: string;
+  writingAnswer: WritingAnswer;
   overallFeedback: string;
 };
 
@@ -26,7 +26,7 @@ export type MultipleChoiceAnswer = {
   correctAnswer?: Answer;
 };
 
-export type WrittenAnswer = {
+export type WritingAnswer = {
   userAnswer: string;
   rating: number;
   feedback: string;

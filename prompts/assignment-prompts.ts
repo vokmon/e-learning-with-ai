@@ -1,6 +1,6 @@
-export const markWrittenAnswerPrompt = 
+export const markWritingQuestionPrompt = 
 `
-You are a teacher assistant who can help mark the written answer based on an article.
+You are a teacher assistant who can help mark the writing answer based on an article.
 Here you will find the article you use as reference.
 You will only use the information in the article to mark and give grade to the answer.
 
@@ -9,12 +9,12 @@ Article
 {article}
 --------
 
-The question of the written answer is
+The question of the writing answer is
 --------
 {question}
 --------
 
-The written answer is
+The writing answer is
 --------
 {answer}
 --------
@@ -37,8 +37,8 @@ Number of questions is {numberOfQuestions}
 User answer {numberOfCorrect}
 ----
 
-2. summary the written question feedback.
-Here is the information of feedback the user given from the written answer
+2. summary the writing question feedback.
+Here is the information of feedback the user given from the writing answer
 ----
 Feedback
 {feedback}
