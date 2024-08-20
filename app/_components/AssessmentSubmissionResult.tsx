@@ -83,7 +83,7 @@ const AssessmentSubmissionResult = forwardRef<HTMLDivElement, AssessmentSubmissi
 
                     <div>
                       <h3 className="text-lg font-semibold mb-2">
-                        Written Question
+                        Writing Question
                       </h3>
                       <p className="mb-2">{result.writtenQuestion}</p>
                       <div className="bg-muted p-3 rounded-md">
